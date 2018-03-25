@@ -6,9 +6,7 @@
 //  Copyright © 2018 Samuel Cole Morgan. All rights reserved.
 //
 
-
 import UIKit
-
 
 class ViewController: UIViewController {
     
