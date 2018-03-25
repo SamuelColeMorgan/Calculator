@@ -12,6 +12,7 @@
 		47715FE32066F3F100785F33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47715FE12066F3F100785F33 /* Main.storyboard */; };
 		47715FE52066F3F100785F33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47715FE42066F3F100785F33 /* Assets.xcassets */; };
 		47715FE82066F3F100785F33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47715FE62066F3F100785F33 /* LaunchScreen.storyboard */; };
+		47858C8820675AE3003A57CE /* norwester.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47858C8720675A3F003A57CE /* norwester.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		47715FE42066F3F100785F33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47715FE72066F3F100785F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47715FE92066F3F100785F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47858C8720675A3F003A57CE /* norwester.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = norwester.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		47715FDC2066F3F100785F33 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				47858C8620675A30003A57CE /* Fonts */,
 				47715FDD2066F3F100785F33 /* AppDelegate.swift */,
 				47715FDF2066F3F100785F33 /* ViewController.swift */,
 				47715FE12066F3F100785F33 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				47715FE92066F3F100785F33 /* Info.plist */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		47858C8620675A30003A57CE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				47858C8720675A3F003A57CE /* norwester.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47858C8820675AE3003A57CE /* norwester.otf in Resources */,
 				47715FE82066F3F100785F33 /* LaunchScreen.storyboard in Resources */,
 				47715FE52066F3F100785F33 /* Assets.xcassets in Resources */,
 				47715FE32066F3F100785F33 /* Main.storyboard in Resources */,
@@ -278,7 +290,7 @@
 				DEVELOPMENT_TEAM = 22594264K9;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sam.Calculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelM.Calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -293,7 +305,7 @@
 				DEVELOPMENT_TEAM = 22594264K9;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sam.Calculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelM.Calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
