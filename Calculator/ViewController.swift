@@ -6,9 +6,12 @@
 //  Copyright © 2018 Samuel Cole Morgan. All rights reserved.
 //
 
+
 import UIKit
 
+
 class ViewController: UIViewController {
+    
     
     //-------- Set Status Bar Color ---------
     
@@ -159,5 +162,6 @@ class ViewController: UIViewController {
     }
     
     //---------------------------------------
+    
     
 }
