@@ -36,7 +36,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.050980392156862744" green="0.10196078431372549" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.070588235294117646" green="0.094117647058823528" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="f1i-wC-VsO" firstAttribute="width" secondItem="9Z1-85-OgS" secondAttribute="width" id="1h0-Ha-WVz"/>
                                             <constraint firstItem="f1i-wC-VsO" firstAttribute="top" secondItem="9Z1-85-OgS" secondAttribute="top" id="4dd-Mo-bcb"/>
@@ -238,7 +238,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.050980392156862744" green="0.10196078431372549" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.070588235294117646" green="0.094117647058823528" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JvM-jn-VtV" secondAttribute="trailing" id="8XJ-a1-qAp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JvM-jn-VtV" secondAttribute="bottom" constant="10" id="FWl-hF-oqn"/>
