@@ -6,7 +6,6 @@
 //  Copyright © 2018 Samuel Cole Morgan. All rights reserved.
 //
 
-
 import UIKit
 
 
@@ -28,6 +27,7 @@ class ViewController: UIViewController {
     var operand1 = ""
     var operand2 = ""
     var result = ""
+    var handleInstantOperation = false
     var currentOperation:Operation = .nilCase
     
     //---------------------------------------
@@ -84,6 +84,7 @@ class ViewController: UIViewController {
         operand1 = ""
         operand2 = ""
         result = ""
+        handleInstantOperation = false
         currentOperation = .nilCase
     }
     
@@ -118,8 +119,13 @@ class ViewController: UIViewController {
             }
             currentOperation = operation
         } else {
-            operand1 = accumulator
-            accumulator = ""
+            if handleInstantOperation == false && accumulator == "" {
+                handleInstantOperation = true
+                operand1 = "0"
+            } else {
+                operand1 = accumulator
+                accumulator = ""
+            }
             currentOperation = operation
         }
     }
@@ -151,11 +157,9 @@ class ViewController: UIViewController {
                 displayLabel.text = accumulator
             }
         default:
-            if isNumber != nil {
-                if accumulator.count <= 10 {
-                    accumulator += senderValue
-                    displayLabel.text = accumulator
-                }
+            if isNumber != nil && accumulator.count <= 10 {
+                accumulator += senderValue
+                displayLabel.text = accumulator
             }
             break
         }
