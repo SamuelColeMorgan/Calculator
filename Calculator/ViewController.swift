@@ -6,54 +6,33 @@
 //  Copyright © 2018 Samuel Cole Morgan. All rights reserved.
 //
 
+
 import UIKit
 
 
 class ViewController: UIViewController {
     
     
-    //-------- Set Status Bar Color ---------
+    // set status bar style
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    //---------------------------------------
     
-    
-    //------- Global Class Variables -------
+    // global class variables
     
     var accumulator = ""
     var operand1 = ""
     var operand2 = ""
     var result = ""
-    var handleInstantOperation = false
+    var InstantOperation = false
     var currentOperation:Operation = .nilCase
     
-    //---------------------------------------
     
-    
-    //------------ Enumerations -------------
-    
-    enum Operation:String {
-        case add = "+"
-        case subtract = "-"
-        case multiply = "*"
-        case divide = "/"
-        case nilCase = "Nil"
-    }
-    
-    //---------------------------------------
-    
-    
-    //--------------- UI Labels -------------
+    // buttons and labels
     
     @IBOutlet weak var displayLabel: UILabel!
-    
-    //---------------------------------------
-    
-    
-    //--------------- Buttons ---------------
     
     @IBOutlet weak var multiplier: UIButton!
     @IBOutlet weak var subtractor: UIButton!
@@ -63,20 +42,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var dot: UIButton!
     @IBOutlet weak var clear: UIButton!
     
-    //---------------------------------------
+    
+    // operation enumeration
+    
+    enum Operation:String {
+        case add = "+"
+        case subtract = "-"
+        case multiply = "*"
+        case divide = "/"
+        case nilCase = "Nil"
+    }
     
     
-    //----- reset Main UI Label On Load -----
+    // helper functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayLabel.text = "0"
     }
-    
-    //---------------------------------------
-    
-    
-    //---------- reset Calculator -----------
     
     func resetCalculator() {
         displayLabel.text = "0"
@@ -84,43 +67,45 @@ class ViewController: UIViewController {
         operand1 = ""
         operand2 = ""
         result = ""
-        handleInstantOperation = false
+        InstantOperation = false
         currentOperation = .nilCase
     }
     
-    //---------------------------------------
+    func updateUILabel(_ num: Double) {
+        if num.truncatingRemainder(dividingBy: 1) == 0 {
+            displayLabel.text = "\(Int(num))"
+        } else { displayLabel.text = "\(num)" }
+    }
     
     
-    //-------- Determine  Operation ---------
+    // perform operation and generate result
     
     func operate(_ operation: Operation) {
         if currentOperation != .nilCase {
             if accumulator != "" {
                 operand2 = accumulator
                 accumulator = ""
+                let double1 = Double(operand1)!
+                let double2 = Double(operand2)!
                 switch currentOperation {
                 case .add:
-                    result = "\(Double(operand1)! + Double(operand2)!)"
+                    result = "\(double1 + double2)"
                 case .subtract:
-                    result = "\(Double(operand1)! - Double(operand2)!)"
+                    result = "\(double1 - double2)"
                 case .multiply:
-                    result = "\(Double(operand1)! * Double(operand2)!)"
+                    result = "\(double1 * double2)"
                 case .divide:
-                    result = "\(Double(operand1)! / Double(operand2)!)"
+                    result = "\(double1 / double2)"
                 default:
                     break
                 }
                 operand1 = result
-                if Double(result)!.truncatingRemainder(dividingBy: 1) == 0 {
-                    displayLabel.text = "\(Int(Double(result)!))"
-                } else {
-                    displayLabel.text = result
-                }
+                updateUILabel(Double(result)!)
             }
             currentOperation = operation
         } else {
-            if handleInstantOperation == false && accumulator == "" {
-                handleInstantOperation = true
+            if InstantOperation == false && accumulator == "" {
+                InstantOperation = true
                 operand1 = "0"
             } else {
                 operand1 = accumulator
@@ -130,10 +115,8 @@ class ViewController: UIViewController {
         }
     }
     
-    //---------------------------------------
     
-    
-    //----- Button Tap Handler function -----
+    // handle button tap
     
     @IBAction func handleTap(_ sender: UIButton) {
         let senderValue = sender.titleLabel!.text!
@@ -164,8 +147,6 @@ class ViewController: UIViewController {
             break
         }
     }
-    
-    //---------------------------------------
     
     
 }
