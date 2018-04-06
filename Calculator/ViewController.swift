@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     var operand1 = ""
     var operand2 = ""
     var result = ""
-    var InstantOperation = false
+    var instantOperation = false
     var currentOperation:Operation = .nilCase
     
     
@@ -67,8 +67,18 @@ class ViewController: UIViewController {
         operand1 = ""
         operand2 = ""
         result = ""
-        InstantOperation = false
+        instantOperation = false
         currentOperation = .nilCase
+    }
+    
+    func handleInstantOperation() {
+        if instantOperation == false && accumulator == "" {
+            instantOperation = true
+            operand1 = "0"
+        } else {
+            operand1 = accumulator
+            accumulator = ""
+        }
     }
     
     func updateUILabel(_ num: Double) {
@@ -88,29 +98,23 @@ class ViewController: UIViewController {
                 let double1 = Double(operand1)!
                 let double2 = Double(operand2)!
                 switch currentOperation {
-                case .add:
-                    result = "\(double1 + double2)"
-                case .subtract:
-                    result = "\(double1 - double2)"
-                case .multiply:
-                    result = "\(double1 * double2)"
-                case .divide:
-                    result = "\(double1 / double2)"
-                default:
-                    break
+                    case .add:
+                        result = "\(double1 + double2)"
+                    case .subtract:
+                        result = "\(double1 - double2)"
+                    case .multiply:
+                        result = "\(double1 * double2)"
+                    case .divide:
+                        result = "\(double1 / double2)"
+                    default:
+                        break
                 }
                 operand1 = result
                 updateUILabel(Double(result)!)
             }
             currentOperation = operation
         } else {
-            if InstantOperation == false && accumulator == "" {
-                InstantOperation = true
-                operand1 = "0"
-            } else {
-                operand1 = accumulator
-                accumulator = ""
-            }
+            handleInstantOperation()
             currentOperation = operation
         }
     }
@@ -122,29 +126,29 @@ class ViewController: UIViewController {
         let senderValue = sender.titleLabel!.text!
         let isNumber: Int? = Int(senderValue)
         switch sender {
-        case adder:
-            operate(.add)
-        case subtractor:
-            operate(.subtract)
-        case multiplier:
-            operate(.multiply)
-        case divider:
-            operate(.divide)
-        case equals:
-            operate(currentOperation)
-        case clear:
-            resetCalculator()
-        case dot:
-            if accumulator.count <= 9 {
-                accumulator += "."
-                displayLabel.text = accumulator
-            }
-        default:
-            if isNumber != nil && accumulator.count <= 10 {
-                accumulator += senderValue
-                displayLabel.text = accumulator
-            }
-            break
+            case adder:
+                operate(.add)
+            case subtractor:
+                operate(.subtract)
+            case multiplier:
+                operate(.multiply)
+            case divider:
+                operate(.divide)
+            case equals:
+                operate(currentOperation)
+            case clear:
+                resetCalculator()
+            case dot:
+                if accumulator.count <= 9 {
+                    accumulator += "."
+                    displayLabel.text = accumulator
+                }
+            default:
+                if isNumber != nil && accumulator.count <= 10 {
+                    accumulator += senderValue
+                    displayLabel.text = accumulator
+                }
+                break
         }
     }
     
